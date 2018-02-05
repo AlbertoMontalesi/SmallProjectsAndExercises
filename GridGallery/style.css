@@ -23,7 +23,7 @@ p {
 
 .close {
     background: none;
-    color: white;
+    color: black;
     border: 0;
 }
 
@@ -34,13 +34,49 @@ p {
     grid-auto-flow: dense;
 }
 
+.item {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 1;
+}
+
+.item img {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item__overlay {
+    background: #ffc60032;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    /* we translate the overlay down so when hover it slides up */
+    transform: translateY(100%);
+    transition: 0.3s;
+}
+
+.item:hover .item__overlay {
+    transform: translateY(0);
+}
+
+.item__overlay button {
+    background: none;
+    border: 2px solid white;
+    color: white;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+}
+
 
 /* style for the rows and column classes */
-
-
-.item {
-  overflow: hidden;
-}
 
 .item.v2 {
     grid-row: span 2;
@@ -55,15 +91,15 @@ p {
 }
 
 .item.h2 {
-  grid-column: span 2;
+    grid-column: span 2;
 }
 
 .item.h3 {
-  grid-column:  span 3;
+    grid-column: span 3;
 }
 
 .item.h4 {
-  grid-column: span 4;
+    grid-column: span 4;
 }
 
 .overlay {
@@ -74,14 +110,16 @@ p {
     bottom: 0;
     left: 0;
     display: none;
-    z-index: 2;
+    z-index: 2 ;
 }
 
-.overlay.open {
+  .open {
     display: grid;
+    align-items: center;
+    justify-items: center;
 }
 
-.overlay figure {
+.overlay-inner {
     background: white;
     width: 700px;
     padding: 20px;
