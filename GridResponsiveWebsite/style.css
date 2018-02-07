@@ -1,0 +1,177 @@
+       :root {
+          --yellow: #ffc600;
+          --black: #34495e;
+      }
+
+      body {
+          font-size: 15px;
+          background-color: grey;
+      }
+
+      button {
+          background: var(--yellow);
+          border: 0;
+          padding: 10px 20px;
+      }
+
+      img {
+          max-width: 100%;
+      }
+
+      .top {
+          display: grid;
+          grid-template-areas: " hero hero cta1" " hero hero cta2";
+          grid-gap: 20px;
+      }
+      /*  wrapper */
+
+      .wrapper {
+          /*  by making it a grid we can set a gap between each subcontainer without having to put a margin on each of them */
+          display: grid;
+          grid-gap: 20px
+      }
+
+      .hero {
+          grid-area: hero;
+          min-height: 400px;
+          background: white url(images/taco.jpg);
+          background-size: cover;
+          background-position: bottom-right;
+          padding: 50px;
+          /* center the text inide the hero */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: start;
+      }
+
+      .hero>* {
+          background: var(--yellow);
+          padding: 5px;
+      }
+
+      .cta {
+          background: var(--yellow);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+      }
+
+      .cta p {
+          margin: 0;
+      }
+
+      .cta1 {
+          grid-area: cta1;
+      }
+
+      .cta2 {
+          grid-area: cta2;
+      }
+
+      .price {
+          font-size: 60px;
+          font-weight: 300;
+      }
+      /*  NAVIGATION */
+
+      .menu ul {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          grid-gap: 10px;
+          padding: 0;
+          list-style-type: none;
+      }
+
+      .menu a {
+          background: var(--yellow);
+          display: block;
+          text-decoration: none;
+          padding: 10px;
+          text-align: center;
+          text-transform: uppercase;
+          color: var(--black);
+          font-size: 20px;
+      }
+      /*  HIDE THE MENU BUTTON */
+      /*  we use aria controls to select the button instead of a bunch of classes */
+
+      [aria-controls="menu-list"] {
+          display: none;
+      }
+      /*  FEATURES */
+
+      .features {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-gap: 20px;
+      }
+
+      .feature {
+          background: white;
+          padding: 10px;
+          border: 1px solid white;
+          text-align: center;
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature .icon {
+          font-size: 50px;
+      }
+      /*  about section */
+
+      .about {
+          background: white;
+          padding: 50px;
+          display: grid;
+          grid-template-columns: 400px 1fr;
+          align-items: center;
+      }
+      /*  gallery */
+
+      .gallery {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-gap: 20px;
+      }
+
+      .gallery img {
+          width: 100%;
+      }
+
+      .gallery h2 {
+          /*  span the h2 the entire row */
+          grid-column: 1 / -1;
+          /*  we display it grid because we will use before and after elements */
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          grid-gap: 20px;
+          align-items: center;
+      }
+
+      .gallery h2:before,
+      .gallery h2:after {
+          display: block;
+          content: "";
+          height: 10px;
+          background: linear-gradient(to var(--direction, left), var(--yellow), transparent);
+      }
+
+      .gallery h2:after {
+          --direction: right;
+          /* background: linear-gradient(to right, var(--yellow), transparent); */
+      }
+      /*  MEDIA QUERIES */
+
+      @media (max-width: 700px) {
+          .top {
+              grid-template-areas: " hero hero " " cta1 cta2 "
+          }
+      }
+
+      @media (max-width: 500px) {
+          .top {
+              grid-template-areas: " hero" "cta1" "cta2"
+          }
+      }
