@@ -26,13 +26,11 @@ body {
   min-height: 30vh;
   min-width: 30vw;
 }
-#container div {
-  padding: 2%;
-}
-#container div > * {
-  padding: 1%;
+header {
+  display: flex;
+  justify-content: space-between;
 }
 
-h2 {
-  text-transform: uppercase;
+.buttons {
+  display: inline;
 }

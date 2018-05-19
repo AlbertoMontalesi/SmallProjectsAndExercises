@@ -10,13 +10,21 @@ html(lang="en")
     title To Do List
   body
     #container
-      #add_item
-        h2 Add Item
-        input(type="text",placeholder="add new task")
-        span Add
-      #to_do_item
-        
-      #done_item
-        h2 Completed
-        input(type="checkbox", name="Task 1", checked)
-        | Task 3
+      header
+        input(type="text",placeholder="Enter an activity..." id="item")
+        button#add  +
+      h2 To Do
+      br
+      ul.todo#todo
+        li item1
+          .buttons
+            button.remove -
+            button.complete x
+      br
+      h2 Completed
+      br
+      ul.completed#completed
+        li item2
+          .buttons
+            button.remove -
+            button.complete x
