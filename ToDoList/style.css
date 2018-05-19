@@ -1,0 +1,38 @@
+
+/* variables */
+:root {
+  --body-bg-color:#f7f1e3;
+  --container-bg-color:#33d9b2;
+}
+
+
+* {
+  font-family: 'Josefin Sans',
+  sans-serif;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: var(--body-bg-color);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  background-color: var(--container-bg-color);
+  padding: 2%;
+  min-height: 30vh;
+  min-width: 30vw;
+}
+#container div {
+  padding: 2%;
+}
+#container div > * {
+  padding: 1%;
+}
+
+h2 {
+  text-transform: uppercase;
+}
